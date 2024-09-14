@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget{
 class _HomeScreenState extends State<HomeScreen> {
 
   addTodo(Todo todo){
-    print('object');
     context.read<TodoBloc>().add(AddTodo(todo));
   }
 
@@ -92,7 +91,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.all(5.0),
                     child: TextButton(
                       onPressed: (){
-                        print('pressed pepo');
                         addTodo(
                           Todo(
                             title: controller1.text,
@@ -146,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BlocBuilder<TodoBloc, TodoState>(
-          builder: (context, state) {;
+          builder: (context, state) {
             if(state.status == TodoStatus.success) {
               return ListView.builder(
                 itemCount: state.todos.length,
